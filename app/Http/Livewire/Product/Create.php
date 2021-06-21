@@ -21,12 +21,12 @@ class Create extends Component
         ]);
 
         $validate['thumbnail'] = $this->thumbnail->store('photos');
-        $product = Product::create($validate);
-        return $this->redirect('');
+        Product::create($validate);
+        return redirect('');
     }
 
     public function render()
     {
-        return view('livewire.product.create');
+        return view('livewire.product.create')->extends('layouts.app')->section('content');
     }
 }
