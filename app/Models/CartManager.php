@@ -32,4 +32,8 @@ class CartManager
     private function findSession(){
         return request()->session()->get($this->sessionName);
     }
+
+    public function getCart(){
+        return $this->cart;
+    }
 }
