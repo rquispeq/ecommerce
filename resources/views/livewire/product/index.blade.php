@@ -1,4 +1,7 @@
 <div class="container">
+@if(session()->has('message'))
+    <div class="alert alert-success">{{ session('message') }}</div>
+@endif
     <div class="row">
     @foreach($products as $product)
         <div class="col-sm-4 mb-2">
@@ -10,7 +13,7 @@
                     <h5 class="card-title font-weight-bold">${{ $product->price }} <sup>00</sup></h5>
                     <p><span>12x$10.75 sin interés</span></p>
                     <div class="d-flex-justify-content-end">
-                        <button class="btn btn-outline-primary">Add to cart</button>
+                        <button class="btn btn-outline-primary" wire:click="addToCart('{{ $product->slug }}')">Add to cart</button>
                     </div>
                 </div>
             </div>

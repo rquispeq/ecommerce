@@ -36,4 +36,9 @@ class CartManager
     public function getCart(){
         return $this->cart;
     }
+
+    public function addToCart($productId){
+        $product = Product::where('slug',$productId)->first();
+        $this->cart->products()->attach($product->id);
+    }
 }
