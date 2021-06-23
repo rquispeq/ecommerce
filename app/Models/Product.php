@@ -18,4 +18,9 @@ class Product extends Model
             $product->slug = Product::where('slug',$slug)->exists() ? ($slug.uniqid()) : $slug ;
         });
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
