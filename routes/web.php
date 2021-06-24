@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Checkout;
 use App\Http\Livewire\Product\Create;
 use App\Http\Livewire\Product\Show;
 use Illuminate\Support\Facades\Auth;
@@ -25,3 +26,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/create', Create::class)->name('products.create')->middleware('admin');
 Route::get('/productos/{product}',Show::class)->name('products.show');
+Route::get('/checkout',Checkout::class)->name('checkout')->middleware('check');
