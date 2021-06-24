@@ -45,4 +45,8 @@ class CartManager
     public function deleteProduct($productId){
         return $this->cart->products()->wherePivot('id',$productId)->detach();
     }
+
+    public function getAmount(){
+        return $this->cart->products()->sum('price');
+    }
 }
