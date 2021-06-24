@@ -41,4 +41,8 @@ class CartManager
         $product = Product::where('slug',$productId)->first();
         $this->cart->products()->attach($product->id);
     }
+
+    public function deleteProduct($productId){
+        return $this->cart->products()->wherePivot('id',$productId)->detach();
+    }
 }

@@ -1,6 +1,9 @@
 <div>
     <h2 class="text-center">Produtos del carrito</h2>
     <div class="card">
+        @if(session()->has('message'))
+            <div class="alert alert-info">{{ session('message') }}</div>
+        @endif
         <div class="card-body">
             <table class="table text-center table-bordered">
                 <thead>
@@ -15,7 +18,7 @@
                         <tr>
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->name }}</td>
-                            <td><button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+                            <td><button class="btn btn-danger" wire:click="deleteProduct({{ $product->pivot->id }})"><i class="fa fa-trash"></i></button></td>
                         </tr>
                     @endforeach
                         <tr>
