@@ -12,7 +12,14 @@ class PaymentController extends Controller
         return redirect()->away($paypal->paymentRequest($cartManager->getAmount()));
     }
 
-    public function paypalCheckout(){
+    public function paypalCheckout(Request $request,Paypal $paypal,$status){
+        if ($status == 'success') {
+            $response = $paypal->checkout($request);
 
+            if (!is_null($response)) {
+                session()->flash('message','Compra exitosa, hemos enviado un correo con un resumen de la compra.');
+                return redirect()->route('welcome');
+            }
+        }
     }
 }

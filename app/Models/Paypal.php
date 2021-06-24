@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Http\Request;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
 use PayPalCheckoutSdk\Core\SandboxEnvironment;
 use PayPalCheckoutSdk\Orders\OrdersCreateRequest;
+use PayPalCheckoutSdk\Orders\OrdersCaptureRequest;
 
 class Paypal{
 
@@ -18,7 +20,7 @@ class Paypal{
 
     public function paymentRequest($amount){
         $request = new OrdersCreateRequest();
-        $request->prefer('return=representation');
+        $request->prefer('return=representation'); //Le pedimos a paypal que nos retorne todos los datos posibles de la transacción
 
         $request->body = [
             "intent" => "CAPTURE",
@@ -48,6 +50,17 @@ class Paypal{
 
             return $aprovalUrl;
         } catch (\HttpException $ex) {
+            dd($ex);
+        }
+    }
+
+    public function checkout(Request $request){
+        $request = new OrdersCaptureRequest($request->token);
+        $request->prefer('return=representation');
+
+        try {
+            return $this->client->execute($request);
+        } catch (\HttpException $e) {
             dd($ex);
         }
     }
