@@ -21,8 +21,13 @@ class Checkout extends Component
         ])->extends('layouts.app')->section('content');
     }
 
+    public function hydrate(){
+        $this->cart = (app(CartManager::class))->getCart();
+    }
+
     public function deleteProduct(CartManager $cartManager,$productId){
         $cartManager->deleteProduct($productId);
+        $this->emitTo('cart','refreshAmount');
         session()->flash('message','Producto removido');
     }
 }
