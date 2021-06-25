@@ -9,8 +9,10 @@ use Livewire\Component;
 class Checkout extends Component
 {
     public ShoppingCart $cart;
+    public $stripeKey;
 
     public function mount(CartManager $cartManager){
+        $this->stripeKey = config('services.stripe.key');
         $this->cart = $cartManager->getCart();
     }
     
