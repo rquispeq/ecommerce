@@ -49,4 +49,8 @@ class CartManager
     public function getAmount(){
         return $this->cart->products()->sum('price');
     }
+
+    public function deleteSession(){
+        return request()->session()->forget($this->sessionName);
+    }
 }
