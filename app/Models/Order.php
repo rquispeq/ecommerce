@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Mail\ConfirmationShopping;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 
 class Order extends Model
 {
@@ -40,8 +41,22 @@ class Order extends Model
     {
         static::saving( function($order){
             (app(CartManager::class))->deleteSession();
-            Mail::to($order->email)->send(new ConfirmationShopping($order));
+            if (!$order->isFromStripe()) {
+                Mail::to($order->email)->send(new ConfirmationShopping($order));
+            }
         });
+
+        static::created(function($order){
+            if ($order->isFromStripe()) {
+                $url = URL::signedRoute('order.complete',['order'=> $order->id]);
+                Mail::to($order->email)->send(new ConfirmationShopping($order,$url));
+            }
+        });
+    }
+
+    // Verificamos si la peticion de pago es de stripe o paypal
+    public function isFromStripe(){
+        return ($this->name == null) ? true : false;
     }
 
     public function shoppingCart(){

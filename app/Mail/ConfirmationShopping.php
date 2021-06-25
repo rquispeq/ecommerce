@@ -12,16 +12,17 @@ class ConfirmationShopping extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $order;
+    public $order, $url;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($order)
+    public function __construct($order,$url = null)
     {
         $this->order = $order;
+        $this->url = $url;
     }
 
     /**
@@ -31,6 +32,6 @@ class ConfirmationShopping extends Mailable
      */
     public function build()
     {
-        return $this->view('view.mail.confirmation');
+        return $this->view('mail.confirmation');
     }
 }

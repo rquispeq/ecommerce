@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompleteOrderController;
 use App\Http\Livewire\Checkout;
 use App\Http\Livewire\Product\Create;
 use App\Http\Livewire\Product\Show;
@@ -28,6 +29,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/create', Create::class)->name('products.create')->middleware('admin');
 Route::get('/productos/{product}',Show::class)->name('products.show');
 Route::get('/checkout',Checkout::class)->name('checkout')->middleware('check');
+
 Route::get('/paypal/payment',[PaymentController::class,'paypalPaymentRequest'])->name('paypal.payment');
 Route::get('/paypal/checkout/{status}',[PaymentController::class,'paypalCheckout'])->name('paypal.checkout');
 Route::post('/stripe/checkout',[PaymentController::class,'stripeCheckout'])->name('stripe.checkout');
+
+Route::get('/order/complete/{order}',[CompleteOrderController::class,'completeForm'])->name('order.complete');
+Route::post('/order/{order}',[CompleteOrderController::class,'completeOrder'])->name('complete');

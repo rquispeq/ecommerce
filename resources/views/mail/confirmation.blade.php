@@ -1,4 +1,4 @@
-<h1>{{Hola $order->name}}</h1>
+<h1>Hola {{ $order->name }}</h1>
 
 <h2>Confirmación de productos</h2>
 
@@ -23,3 +23,8 @@
         </tr>
     </tbody>
 </table>
+
+@isset($url)
+    <h2>Para completar tu orden, completa el siguiente formulario</h2>
+    <a href="{{ $url }}">Formulario</a>
+@endisset
