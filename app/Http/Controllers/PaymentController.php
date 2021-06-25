@@ -25,4 +25,8 @@ class PaymentController extends Controller
             }
         }
     }
+
+    public function stripeCheckout(Request $request){
+        dd($request->all());
+    }
 }

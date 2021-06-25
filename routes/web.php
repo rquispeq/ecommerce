@@ -30,3 +30,4 @@ Route::get('/productos/{product}',Show::class)->name('products.show');
 Route::get('/checkout',Checkout::class)->name('checkout')->middleware('check');
 Route::get('/paypal/payment',[PaymentController::class,'paypalPaymentRequest'])->name('paypal.payment');
 Route::get('/paypal/checkout/{status}',[PaymentController::class,'paypalCheckout'])->name('paypal.checkout');
+Route::post('/stripe/checkout',[PaymentController::class,'stripeCheckout'])->name('stripe.checkout');
