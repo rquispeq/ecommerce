@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Mail\ConfirmationShopping;
+use Illuminate\Support\Facades\Mail;
 
 class Order extends Model
 {
@@ -38,6 +40,11 @@ class Order extends Model
     {
         static::saving( function($order){
             (app(CartManager::class))->deleteSession();
+            Mail::to($order->email)->send(new ConfirmationShopping($order));
         });
+    }
+
+    public function shoppingCart(){
+        return $this->belongsTo(ShoppingCart::class);
     }
 }
