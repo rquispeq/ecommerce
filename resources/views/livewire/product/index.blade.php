@@ -16,7 +16,7 @@
                     <div class="d-flex-justify-content-end">
                         <button class="btn btn-outline-primary" wire:click="addToCart('{{ $product->slug }}')">Add to cart</button>
                     </div>
-                    @if(!is_null(auth()->user()->isAdmin()))
+                    @if(!is_null(auth()->user()) and auth()->user()->isAdmin())
                         <div class="d-flex-justify-content-end">
                             <a href="{{ route('products.edit',$product->slug) }}" class="btn btn-outline-primary" >Edit</a>
                         </div>
