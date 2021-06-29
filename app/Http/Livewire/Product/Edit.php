@@ -27,17 +27,20 @@ class Edit extends Component
             'data.name' => 'required',
             'data.price' => 'required|numeric',
             'data.description' => 'required',
-            'newThumbnail' => 'image|max:1024'
+            'newThumbnail' => ''
         ]);
 
-        $validate['data']['thumbnail'] = $this->newThumbnail->store('photos');
-        
         $product = Product::where('slug', $validate['data']['slug'])->get()->first();
+
         $product->name = $validate['data']['name'];
         $product->price = $validate['data']['price'];
         $product->description = $validate['data']['description'];
-        $product->thumbnail = $validate['data']['thumbnail'];
+        if (!is_null($this->newThumbnail)) {
+            $product->thumbnail = $this->newThumbnail->store('photos');
+        }
+
         $product->save();
+
         session()->flash('message','Producto actualizado.');
         // return redirect('');
     }

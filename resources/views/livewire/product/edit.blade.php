@@ -21,11 +21,11 @@
 
             <label for="">Imagen</label>
             <input type="file" wire:model.defer="newThumbnail" class="form-control mb-2">
-            @error('thumbnail') <p class="error mb-2">{{ $message }}</p> @enderror
+            @error('newThumbnail') <p class="error mb-2">{{ $message }}</p> @enderror
             @if($newThumbnail)
-                <img src="{{ $newThumbnail->temporaryUrl() }}" alt="">
+                <img width="350" src="{{ $newThumbnail->temporaryUrl() }}" alt="">
             @elseif($data['thumbnail'])
-                <img src="{{ asset('storage/'.$data['thumbnail']) }}" alt="">
+                <img width="350" src="{{ asset('storage/'.$data['thumbnail']) }}" alt="">
             @endif
 
             <button type="submit" class="btn btn-outline-primary btn-block">Guardar Foto</button>
