@@ -7,6 +7,7 @@ use App\Http\Livewire\Product\Show;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
+use App\Http\Livewire\Product\Edit;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/create', Create::class)->name('products.create')->middleware('admin');
+Route::get('/edit/{product}', Edit::class)->name('products.edit')->middleware('admin');
 Route::get('/productos/{product}',Show::class)->name('products.show');
 Route::get('/checkout',Checkout::class)->name('checkout')->middleware('check');
 
