@@ -1,62 +1,43 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center">Proyecto Ecommerce Laravel</h1>
+Este es un pequeño proyecto de ecommerce que cuenta con las funciones básicas que tiene este tipo de sitios web. <br>
+El proyecto se realizó con el objetivo de practicar los conceptos de PHP, Laravel y Livewire.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Herramientas Usadas
 
-## About Laravel
+* PHP
+* Laravel 8
+* Livewire
+* Bootstrap 4
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Funcionalidades
+1. Login, Register con Laravel/ui.
+1. Carrito de Compras (sin Login).
+1. Listado de productos.
+1. Creación de Producto.
+1. Edición de Producto.
+1. Eliminación de Producto.
+1. Detalle de un Producto.
+1. Pasarela de Pago por Paypal.
+1. Pasarela de Pago por Stripe.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Pantallas
+### Registro de usuario
+![register](https://user-images.githubusercontent.com/23042251/124400017-100f6d00-dce5-11eb-9e7b-16cec4787e9b.png)
+# Login 
+![login](https://user-images.githubusercontent.com/23042251/124400016-100f6d00-dce5-11eb-9d03-ad5694e80275.png)
+### Crear producto
+![](https://user-images.githubusercontent.com/23042251/124400013-0ede4000-dce5-11eb-9aa3-be7309e2dc7c.png)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Editar producto
+![edit](https://user-images.githubusercontent.com/23042251/124400014-0f76d680-dce5-11eb-9d45-b943487b9d66.png)
+### Listado de productos
+![home](https://user-images.githubusercontent.com/23042251/124400015-0f76d680-dce5-11eb-906e-5d5acd6ba4ae.png)
+### Detalle de producto
+![show](https://user-images.githubusercontent.com/23042251/124400018-10a80380-dce5-11eb-8c45-2a048324d189.png)
+### Carrito de compra
+![Carrito de compra](https://user-images.githubusercontent.com/23042251/124400019-11d93080-dce5-11eb-84a6-ef08abec55e7.png)
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Pasarela de Pago Paypal
+![paypal_checkout](https://user-images.githubusercontent.com/23042251/124400021-11d93080-dce5-11eb-8eb7-b57cdebd8435.png)
+### Mensaje de Confirmación de pago
+![Pago Stripe](https://user-images.githubusercontent.com/23042251/124400023-1271c700-dce5-11eb-9eb9-e10cb892a888.png)
